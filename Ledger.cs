@@ -5,16 +5,16 @@ using System.Linq;
 
 public class LedgerEntry
 {
-   public LedgerEntry(DateTime date, string desc, decimal chg)
+   public LedgerEntry(DateTime date, string description, decimal change)
    {
        Date = date;
-       Desc = desc;
-       Chg = chg / 100.0m;
+       Description = description;
+       Change = change / 100.0m;
    }
 
    public DateTime Date { get; }
-   public string Desc { get; }
-   public decimal Chg { get; }
+   public string Description { get; }
+   public decimal Change { get; }
 }
 
 public static class Ledger
@@ -122,8 +122,8 @@ public static class Ledger
    {
        var formatted = "";
        var date = Date(culture, entry.Date);
-       var description = Description(entry.Desc);
-       var change = Change(culture, entry.Chg);
+       var description = Description(entry.Description);
+       var change = Change(culture, entry.Change);
 
        formatted += date;
        formatted += " | ";
@@ -137,8 +137,8 @@ public static class Ledger
 
    private static IEnumerable<LedgerEntry> sort(LedgerEntry[] entries)
    {
-       var neg = entries.Where(e => e.Chg < 0).OrderBy(x => x.Date + "@" + x.Desc + "@" + x.Chg);
-       var post = entries.Where(e => e.Chg >= 0).OrderBy(x => x.Date + "@" + x.Desc + "@" + x.Chg);
+       var neg = entries.Where(e => e.Change < 0).OrderBy(x => x.Date + "@" + x.Description + "@" + x.Change);
+       var post = entries.Where(e => e.Change >= 0).OrderBy(x => x.Date + "@" + x.Description + "@" + x.Change);
 
        var result = new List<LedgerEntry>();
        result.AddRange(neg);

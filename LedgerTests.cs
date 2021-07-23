@@ -14,7 +14,7 @@ public class LedgerTests
         Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void One_entry()
     {
         var currency = "USD";
