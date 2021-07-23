@@ -9,7 +9,7 @@ public class LedgerEntry
    {
        Date = date;
        Desc = desc;
-       Chg = chg;
+       Chg = chg / 100.0m;
    }
 
    public DateTime Date { get; }
@@ -21,7 +21,7 @@ public static class Ledger
 {
    public static LedgerEntry CreateEntry(string date, string desc, int chng)
    {
-       return new LedgerEntry(DateTime.Parse(date, CultureInfo.InvariantCulture), desc, chng / 100.0m);
+       return new LedgerEntry(DateTime.Parse(date, CultureInfo.InvariantCulture), desc, chng );
    }
 
    private static CultureInfo CreateCulture(string cur, string loc)
