@@ -54,50 +54,6 @@ public static class Ledger
                 throw new ArgumentException("Invalid currency");
         }
 
-
-
-        //if (cur != "USD" && cur != "EUR")
-        //{
-        //    throw new ArgumentException("Invalid currency");
-        //}
-        //else
-        //{
-        //    if (loc != "nl-NL" && loc != "en-US")
-        //    {
-        //        throw new ArgumentException("Invalid currency");
-        //    }
-
-        //    if (cur == "USD")
-        //    {
-        //        if (loc == "en-US")
-        //        {
-        //            curSymb = "$";
-        //            datPat = "MM/dd/yyyy";
-        //        }
-        //        else if (loc == "nl-NL")
-        //        {
-        //            curSymb = "$";
-        //            curNeg = 12;
-        //            datPat = "dd/MM/yyyy";
-        //        }
-        //    }
-
-        //    if (cur == "EUR")
-        //    {
-        //        if (loc == "en-US")
-        //        {
-        //            curSymb = "€";
-        //            datPat = "MM/dd/yyyy";
-        //        }
-        //        else if (loc == "nl-NL")
-        //        {
-        //            curSymb = "€";
-        //            curNeg = 12;
-        //            datPat = "dd/MM/yyyy";
-        //        }
-        //    }
-        //}
-
         var culture = new CultureInfo(loc);
         culture.NumberFormat.CurrencySymbol = curSymb;
         culture.NumberFormat.CurrencyNegativePattern = curNeg;
